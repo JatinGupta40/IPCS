@@ -1,0 +1,29 @@
+{
+  "name": "blogging",
+  "version": "1.0.0",
+  "description": "",
+  "main": "footer.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JatinGupta40/blog.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JatinGupta40/blog/issues"
+  },
+  "homepage": "https://github.com/JatinGupta40/blog#readme",
+  "devDependencies": {
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^8.0.0",
+    "gulp-imagemin": "^5.0.3",
+    "gulp-sass": "^5.1.0",
+    "sass": "^1.52.2"
+  },
+  "dependencies": {
+    "aos": "^2.3.4"
+  }
+}
