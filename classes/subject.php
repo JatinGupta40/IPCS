@@ -8,9 +8,17 @@ class subject extends connection
   public $result;
   
   // Fetching all the data of blog table.
-  public function AvailableSubjets()
+  public function AvailableSubject()
   {
     $result = mysqli_query($this->connection,"SELECT * from Subjects");
+    return $result;
+  } 
+  
+  // Fetching all the data of blog table.
+  public function InsertSubject($subject)
+  {
+    echo $subject;
+    $result = mysqli_query($this->connection,"INSERT INTO Subjects (SubName) VALUES ('$subject')");
     return $result;
   } 
   

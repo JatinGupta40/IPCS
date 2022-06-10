@@ -34,7 +34,7 @@ $method = new methodQuery\method;
           <a href="/addDoc">Add Document</a>
         </h2>
         <h2>
-          <a href="">Add Subject</a>
+          <a href="/addSubject">Add Subject</a>
         </h2>
       </div>
       <hr>
@@ -44,14 +44,33 @@ $method = new methodQuery\method;
             <th>S.No</th>
             <th>Name</th>
             <th>Subject Name</th>
+            <th>Class</th>
             <th>Resource</th>
           </tr>
           <tr>
             <?php
-              $doc = $doc->doc();
-            // if() {
-
-            // }
+              $document = $doc->FetchAllDoc();
+              $numberofcolumns = $method->numCols();
+              if($method->numRows($document) > 0) {
+                $fetchdocument = $method->fetchArray($document);
+                $i = 0;
+                while($i <= $numberofcolumns) {
+                  echo $i;
+                  print_r($fetchdocument[$i+1]);
+                  $i++;
+                }
+            ?>
+              <td>
+                <?php
+                  // echo $row['SN_ID'];
+                  // echo $row['Name'];
+                  // echo $row['Subject'];
+                  // echo $row['Class'];
+                ?>
+              </td>
+            <?php
+               // }
+              }
             ?>
           </tr>
         </table>

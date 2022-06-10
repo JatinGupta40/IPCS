@@ -382,29 +382,29 @@ touch-action: pan-y;
 
 .row {
     .col {
-        img 
-        {
-          margin-bottom: 36px;
-          border-radius: 10px;
-          opacity: 1;
-          transition: .2s ease;
-          backface-visibility: hidden;
-          box-shadow: rgba(80, 59, 59, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
-          // cursor: move;
-        }
-        a 
-        {
-          opacity: 0;
-          position: relative;
-          right: 25%;
-          transform: translate(-50%, -50%);
-          -ms-transform: translate(-50%, -50%);
-          text-align: center;
-          transition: .2s ease;
-          &:hover 
-            {
-              opacity: 1;
-            }
+      img 
+      {
+        margin-bottom: 36px;
+        border-radius: 10px;
+        opacity: 1;
+        transition: .2s ease;
+        backface-visibility: hidden;
+        box-shadow: rgba(80, 59, 59, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+        // cursor: move;
+      }
+      a 
+      {
+        opacity: 0;
+        position: relative;
+        right: 25%;
+        transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        text-align: center;
+        transition: .2s ease;
+        &:hover 
+          {
+            opacity: 1;
+          }
           i 
           {
             font-size: $nav20;
@@ -430,49 +430,49 @@ touch-action: pan-y;
 }
 
 // Newsletter
-.newsletter
-{
-  background-color: $color-accent;
-  margin-top: 3vh;
-  border-radius: 50px;
-  padding-bottom: 3vh;
-  h2
-  {
-    text-align: center;
-    padding: 1rem;
-    font-size: $footer18;
-  }
-  form
-  {
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    input
-    {
-      border: 1px solid $newsletterinputborder;
-      color: $newsletterinput;
-      padding: .375rem .75rem;
-      border-radius: .25rem 1.25rem;
-      margin: 5px;
-    }
-    button
-    {
-      background-color:$bg;
-      //width: 15%;
-      margin: 5px;
-      border-color: $footula;
-      border-radius: 20px;
-      font-size: $footer18;
-      padding: 10px;
-      transition: padding 1s, transform 1s;
-    }
-    button:hover
-    {
-      background-color: $footula;
-      transform: rotate(360deg);
-    }
-  }
-}
+// .newsletter
+// {
+//   background-color: $color-accent;
+//   margin-top: 3vh;
+//   border-radius: 50px;
+//   padding-bottom: 3vh;
+//   h2
+//   {
+//     text-align: center;
+//     padding: 1rem;
+//     font-size: $footer18;
+//   }
+//   form
+//   {
+//     display: flex;
+//     justify-content: center;
+//     text-align: center;
+//     input
+//     {
+//       border: 1px solid $newsletterinputborder;
+//       color: $newsletterinput;
+//       padding: .375rem .75rem;
+//       border-radius: .25rem 1.25rem;
+//       margin: 5px;
+//     }
+//     button
+//     {
+//       background-color:$bg;
+//       //width: 15%;
+//       margin: 5px;
+//       border-color: $footula;
+//       border-radius: 20px;
+//       font-size: $footer18;
+//       padding: 10px;
+//       transition: padding 1s, transform 1s;
+//     }
+//     button:hover
+//     {
+//       background-color: $footula;
+//       transform: rotate(360deg);
+//     }
+//   }
+// }
 
 
 // carousel ends
@@ -545,118 +545,117 @@ touch-action: pan-y;
 }
 // Carousel Uploaded Images.
 
-@media (max-width:411px)
-{
-  .carouselbox
-  {
-    padding: 1vh;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    text-align: center;
-    color: $bg;
-    img
-    {
-      width: 100%;
-      display: flex;
-      height: 40vh;
-      margin: 0;
-    }
+// @media (max-width:411px)
+// {
+//   .carouselbox
+//   {
+//     padding: 1vh;
+//     width: 100%;
+//     display: flex;
+//     flex-direction: column;
+//     position: relative;
+//     text-align: center;
+//     color: $bg;
+//     img
+//     {
+//       width: 100%;
+//       display: flex;
+//       height: 40vh;
+//       margin: 0;
+//     }
   
-  }
-  .centered 
-  {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, 0%);
-  }
-  .centered1 
-  {
-    position: absolute;
-    top: 60%;
-    left: 50%;
-    transform: translate(-55%, -50%);
-  }
+//   }
+//   .centered 
+//   {
+//     position: absolute;
+//     top: 50%;
+//     left: 50%;
+//     transform: translate(-50%, 0%);
+//   }
+//   .centered1 
+//   {
+//     position: absolute;
+//     top: 60%;
+//     left: 50%;
+//     transform: translate(-55%, -50%);
+//   }
 
-  .cardcheckbox 
-  {
-    opacity: 0;
-  }
-  .cardcheckbox, .cardcheckbox:checked 
-  {
-    opacity: 1;
-    position: absolute;
-    top: 85%;
-    left: 47%;
-  }
-}
+//   .cardcheckbox 
+//   {
+//     opacity: 0;
+//   }
+//   .cardcheckbox, .cardcheckbox:checked 
+//   {
+//     opacity: 1;
+//     position: absolute;
+//     top: 85%;
+//     left: 47%;
+//   }
+// }
 
-@-webkit-keyframes fadeEffect {
-  from {opacity: 0;}
-  to {opacity: 1;}
-}
-@keyframes fadeEffect {
-  from {opacity: 0;}
-  to {opacity: 1;}
-}
+// @-webkit-keyframes fadeEffect {
+//   from {opacity: 0;}
+//   to {opacity: 1;}
+// }
+// @keyframes fadeEffect {
+//   from {opacity: 0;}
+//   to {opacity: 1;}
+// }
 
 .add-doc
 { 
   margin-top: 10vh;
   margin-bottom: 10vh; 
   flex-direction: column;
-  label
-  {
-    margin-top: 4vh;
+  .form-group {
+    padding: 0vh 0 4vh 0;
   }
 }
 
-.deleteblog
-{
-  margin-top: 10vh;
-  margin-right: 10vw;
-  display: inline-flex;
-  h3
-  {
-    margin-right: 1vw;
-  }
-}
+// .deleteblog
+// {
+//   margin-top: 10vh;
+//   margin-right: 10vw;
+//   display: inline-flex;
+//   h3
+//   {
+//     margin-right: 1vw;
+//   }
+// }
 
-.forgotpwd
-  { 
-    height: 50vh; 
-    margin:auto; 
-    width: 50%; 
-    padding: 50px; 
-    margin-top: 15vh; 
-    font-size: $pwd;
-  input
-    {
-      height: 5vh;
-    }
-  button 
-    { 
-      background-color: $darkblue; 
-      color: $bg; 
-      border-radius: 5rem; 
-      width: 8vw; 
-      font-size: $footer18;
-      height: 8vh;
-    }
-  }
+// .forgotpwd
+//   { 
+//     height: 50vh; 
+//     margin:auto; 
+//     width: 50%; 
+//     padding: 50px; 
+//     margin-top: 15vh; 
+//     font-size: $pwd;
+//   input
+//     {
+//       height: 5vh;
+//     }
+//   button 
+//     { 
+//       background-color: $darkblue; 
+//       color: $bg; 
+//       border-radius: 5rem; 
+//       width: 8vw; 
+//       font-size: $footer18;
+//       height: 8vh;
+//     }
+//   }
 
 /*--------------------------------------------------------------
 # Sections General
 --------------------------------------------------------------*/
 
 
-.editdelete
-  { 
-    display: flex;
-    padding-bottom: 2vh;
-  }
+// .editdelete
+//   { 
+//     display: flex;
+//     padding-bottom: 2vh;
+//   }
 
 .editdeletebutton
   {

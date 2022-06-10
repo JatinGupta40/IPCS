@@ -8,16 +8,16 @@ class doc extends connection
   public $result;
   
   // Fetching all the data of Subject Notes(doc) table.
-  public function doc()
+  public function FetchAllDoc()
   {
-    $result = mysqli_query($this->connection,"SELECT * from SubjectNotes ORDER BY id DESC");
+    $result = mysqli_query($this->connection,"SELECT * from SubjectNotes ORDER BY SN_ID DESC");
     return $result;
   } 
 
   // Inserting Notes/doc.
   public function insertDoc($Name, $Subject, $Class, $FilePath)
   {
-    $result = mysqli_query($this->connection,"INSERT INTO SubjectNotes (Name, Subject, Class, FilePath) VALUES ('$id', '$heading', '$content', '$cleanurl')");
+    $result = mysqli_query($this->connection,"INSERT INTO SubjectNotes (Name, Subject, Class, FilePath) VALUES ('$Name', '$Subject', '$Class', '$FilePath')");
     return $result;
   }
   

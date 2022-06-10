@@ -10,7 +10,7 @@
     $user = new userQuery\user;
     $method = new methodQuery\method;
     $newsletter = new newsletterQuery\newsletter;
-    $subject = new subjectQuery\subject;
+    $subjectDB = new subjectQuery\subject;
 
     $a = $_SESSION['fname'];
     $id = $_SESSION['id'];
@@ -45,14 +45,14 @@
         $subject == null;
       }
       // Student Class.
-      // if(!empty($_POST['class']))
-      // {
-      //   $class = $_POST['class'];
-      // }
-      // else 
-      // {
-      //   $class == null;
-      // }
+      if(!empty($_POST['class']))
+      {
+        $class = $_POST['class'];
+      }
+      else 
+      {
+        $class == null;
+      }
 
       // PDF file Url.
       if(!empty($_FILES['pdfFile']['name']))
@@ -73,10 +73,10 @@
       {
         $errors['subject'] = 'Subject is required.';
       }
-      // if($class == null) 
-      // {
-      //   $errors['class'] = 'class is required.';
-      // }
+      if($class == null) 
+      {
+        $errors['class'] = 'class is required.';
+      }
       if($pdfFile == null) 
       {
         $errors['pdfFile'] = 'File is required.';
@@ -84,30 +84,26 @@
 
       if(!empty($_POST['title']) && !empty($_POST['subject']))
       {
-
-        // Inserting into DB.
-        $validext = 'pdf';
-        $location = '/Files/'.$_FILES['pdfFile']['name'];
-        $result = $doc->insertDoc($id, $title, $content, $cleanurl);
-        //print_r($result->);
-        // Send mail to the subscribed user.
-        // $subscribe = $newsletter->mail();
-        // Fetching the id for this new uploaded blog.
-        // $query = $blog->blog();
-        // if($query->num_rows > 0)
-        // {
-        //   // Here, fetch function is called from method class.
-        //   $row = $method->fetchArray($query);
-        //   $id = $row['id'];
-        // } 
+        if(!empty($_POST['class']) && !empty($_FILES['pdfFile']['name'])) {
+          // Inserting into DB.
+          $validext = 'pdf';
+          // Getting File Name
+          $filename = $_FILES['pdfFile']['name'];
+          // Changing file name, replacing any space with hyphen.
+          $newName = strtolower(str_replace(' ', '-', $filename));
+          $location = 'Files/'.$newName;
+          move_uploaded_file($_FILES['pdfFile']['name'],$targetlocation);
+          $result = $doc->insertDoc($title, $subject, $class, $location);
+          header('location:dashboard');
+        }
       }
       // Displaying Error message.
       if (isset($errors)) {
         if (count($errors) > 0) {
           foreach ($errors as $key => $value) {
             echo '<div class="alert alert-danger">' . $value . '</div>';
-            }
-         }
+          }
+        }
       }
     }
 ?>
@@ -126,7 +122,7 @@
         <option value="Select">Select</option>
         <?php
           // Fetching all the subjects.
-          $subjects = $subject->AvailableSubjets();
+          $subjects = $subjectDB->AvailableSubject();
           if($method->numRows($subjects) > 0) {
             foreach ($subjects as $row) {
         ?>
@@ -143,7 +139,7 @@
     </div>
     <div class="form-group">
       <label for="class">For Class</label>
-      <input type="text" name="class" class="form-control <?php if(isset($errors['class'])) : ?> input-error<?php endif ; ?>" value="<?php if (isset($_POST['class'])) { echo $class; } ?>">
+      <input type="number" min ="1" max="12" name="class" class="form-control <?php if(isset($errors['class'])) : ?> input-error<?php endif ; ?>" value="<?php if (isset($_POST['class'])) { echo $class; } ?>">
     </div>
     <div class="form-group">
       <label for="upload-file">Upload File</label>
