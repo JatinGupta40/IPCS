@@ -1,5 +1,7 @@
 <?php
-    
+
+  error_reporting( E_ALL ); 
+
   require_once ($_SERVER['DOCUMENT_ROOT'] .'/header.php');
   require_once ($_SERVER['DOCUMENT_ROOT'] .'/classes/doc.php');
   require_once ($_SERVER['DOCUMENT_ROOT'] .'/classes/method.php');
@@ -91,10 +93,20 @@
           $filename = $_FILES['pdfFile']['name'];
           // Changing file name, replacing any space with hyphen.
           $newName = strtolower(str_replace(' ', '-', $filename));
-          $location = 'Files/'.$newName;
-          move_uploaded_file($_FILES['pdfFile']['name'],$targetlocation);
-          $result = $doc->insertDoc($title, $subject, $class, $location);
-          header('location:dashboard');
+          $targetlocation = "Files/".$newName;
+          if (file_exists($targetlocation)) {
+          ?>
+            <div class="form-control alert-warning">Sorry, file already exists.</div>
+          <?php
+          } 
+          else {
+            $result = $doc->insertDoc($title, $subject, $class, $targetlocation);
+            move_uploaded_file($_FILES['pdfFile']['tmp_name'], $targetlocation);
+            ?> 
+              <div class="form-control alert-success">Congratulations! File Uploaded Successfully.</div>
+            <?php
+          }
+          
         }
       }
       // Displaying Error message.

@@ -10,7 +10,7 @@ class doc extends connection
   // Fetching all the data of Subject Notes(doc) table.
   public function FetchAllDoc()
   {
-    $result = mysqli_query($this->connection,"SELECT * from SubjectNotes ORDER BY SN_ID DESC");
+    $result = mysqli_query($this->connection,"SELECT * from SubjectNotes");
     return $result;
   } 
 

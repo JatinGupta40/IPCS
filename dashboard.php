@@ -38,45 +38,45 @@ $method = new methodQuery\method;
         </h2>
       </div>
       <hr>
-      <div class="ResourceTable">
-        <table>
+  <?php
+    }
+  ?>
+  <div class="container">
+    <div class="row">
+      <div class="ResourceTable table-responsive">
+        <table class= "table table-bordered">
           <tr>
             <th>S.No</th>
-            <th>Name</th>
-            <th>Subject Name</th>
+            <th class="size">Name</th>
+            <th>Subject</th>
             <th>Class</th>
             <th>Resource</th>
           </tr>
-          <tr>
             <?php
               $document = $doc->FetchAllDoc();
               $numberofcolumns = $method->numCols();
               if($method->numRows($document) > 0) {
-                $fetchdocument = $method->fetchArray($document);
-                $i = 0;
-                while($i <= $numberofcolumns) {
-                  echo $i;
-                  print_r($fetchdocument[$i+1]);
-                  $i++;
-                }
+                $fetchdocument = $method->fetchAssoc($document);
+                $n = 1;
+                foreach($fetchdocument as $row) {
             ?>
-              <td>
-                <?php
-                  // echo $row['SN_ID'];
-                  // echo $row['Name'];
-                  // echo $row['Subject'];
-                  // echo $row['Class'];
-                ?>
-              </td>
+            <tr>
+              <td><?php echo $n; ?></td>
+              <td><?php echo $row['Name'];?></td>
+              <td><?php echo $row['Subject']; ?></td>
+              <td><?php echo $row['Class']; ?></td>
+            </tr>
             <?php
-               // }
+                $n++;
+                }
               }
             ?>
-          </tr>
         </table>
       </div>
+      </div>
+      </div>
   <?php
-  }
+  // }
       
       // $adminquery = $blog->blog();
       // if($adminquery->num_rows > 0)
