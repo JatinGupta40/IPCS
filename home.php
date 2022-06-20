@@ -18,7 +18,7 @@ $user = new user();
 $method = new method();
 
 // Carousel.
-// $result1 = $carousel->carousel("SELECT * FROM carousel");.
+$result1 = $carousel->carousel("SELECT * FROM carousel");
 ?>
 
 <!-- Carousel Start -->
@@ -30,33 +30,27 @@ $method = new method();
           <li data-target=".demo" data-slide-to="1"></li>
           <li data-target=".demo" data-slide-to="2"></li>
         </ul> 
-
         <!-- The slideshow -->
         <div class="carousel-inner">
         <?php
-        // $i = 0;
-        // foreach ($result1 as $row)
-        // {
-        //   $actives = '';
-        //   if ($i == 0)
-        //   {
-        //     $actives = 'active';
-        //   }
-        //     $img = $row['image'];
-        //     $title = $row['title'];
-        //     $imageby = $row['imageby'];
+        $i = 0;
+        foreach ($result1 as $row)
+        {
+          $actives = '';
+          if ($i == 0)
+          {
+            $actives = 'active';
+          }
+            $img = $row['image'];
         ?>
             <div class="carousel-item <?php echo $actives; ?>">
               <img src="<?php echo $img; ?>">
-              <h1><?php echo $title; ?></h1>
-              <h3><?php echo $imageby; ?></h3>
             </div>
             <?php
             $i++;
-            // }
+            }
             ?>
         </div>
-
         <!-- Left and right controls -->
         <a class="carousel-control-prev" href=".demo" data-slide="prev">
           <span class="carousel-control-prev-icon"></span>
@@ -67,15 +61,43 @@ $method = new method();
       </div>
 <!-- Carousel ends -->
 
-
-<!-- Newsletter start -->
-
-<!-- code is in extra/index.php -->
-
-<!-- Newsletter ends -->
+<div class="container">
+    <div class="row">
+      <div class="ResourceTable table-responsive">
+        <table class= "table table-bordered">
+          <tr>
+            <th>S.No</th>
+            <th class="size">Name</th>
+            <th>Subject</th>
+            <th>Class</th>
+            <th>Resource</th>
+          </tr>
+          <?php
+            $document = $doc->selectQuery();
+            $fetchdocument = $method->fetchAll($document);
+            $numberOfRows = $method->numRows($document);
+            if($numberOfRows > 0) {
+              $n = 1;
+              foreach($fetchdocument as $value) {
+          ?>
+          <tr>
+            <td><?php echo $n; ?></td>
+            <td><?php echo $value['Name']; ?></td>
+            <td><?php echo $value['Subject']; ?></td>
+            <td><?php echo $value['Class']; ?></td>
+            <td><a href="<?php echo $value['FilePath']; ?>"><span class="downloadButton"><i class="fa fa-download"> DOWNLOAD</span></td>
+          </tr>
+          <?php
+              $n++;
+              }
+            }
+          ?>
+        </table>
+      </div>
+    </div>
+  </div>
 
 <?php
-
 // If (isset($_GET['pageno']))
 // {
 //   $pageno = $_GET['pageno'];
