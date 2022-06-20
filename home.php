@@ -1,17 +1,24 @@
-<?php 
+<?php
 
-require_once ($_SERVER['DOCUMENT_ROOT'] .'/header.php');
-require_once ($_SERVER['DOCUMENT_ROOT'] .'/classes/doc.php');
-require_once ($_SERVER['DOCUMENT_ROOT'] .'/classes/user.php');
-require_once ($_SERVER['DOCUMENT_ROOT'] .'/classes/method.php');
+/**
+ * @file
+ */
 
-$doc = new docQuery\doc;
-$user = new userQuery\user;
-$method = new methodQuery\method;
+use methodQuery\method;
+use userQuery\user;
+use docQuery\doc;
+
+require_once $_SERVER['DOCUMENT_ROOT'] . '/header.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/classes/doc.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/classes/user.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/classes/method.php';
+
+$doc = new doc();
+$user = new user();
+$method = new method();
 
 // Carousel.
-// $result1 = $carousel->carousel("SELECT * FROM carousel");
-
+// $result1 = $carousel->carousel("SELECT * FROM carousel");.
 ?>
 
 <!-- Carousel Start -->
@@ -27,26 +34,26 @@ $method = new methodQuery\method;
         <!-- The slideshow -->
         <div class="carousel-inner">
         <?php
-          // $i = 0;
-          // foreach ($result1 as $row) 
-          // {
-          //   $actives = '';
-          //   if ($i == 0) 
-          //   {
-          //     $actives = 'active';
-          //   }
-          //     $img = $row['image'];
-          //     $title = $row['title'];
-          //     $imageby = $row['imageby'];
+        // $i = 0;
+        // foreach ($result1 as $row)
+        // {
+        //   $actives = '';
+        //   if ($i == 0)
+        //   {
+        //     $actives = 'active';
+        //   }
+        //     $img = $row['image'];
+        //     $title = $row['title'];
+        //     $imageby = $row['imageby'];
         ?>
-            <div class="carousel-item <?= $actives; ?>">
-              <img src="<?= $img; ?>">
-              <h1><?= $title; ?></h1>
-              <h3><?= $imageby; ?></h3>
+            <div class="carousel-item <?php echo $actives; ?>">
+              <img src="<?php echo $img; ?>">
+              <h1><?php echo $title; ?></h1>
+              <h3><?php echo $imageby; ?></h3>
             </div>
-            <?php 
-              $i++;
-          // } 
+            <?php
+            $i++;
+            // }
             ?>
         </div>
 
@@ -69,27 +76,23 @@ $method = new methodQuery\method;
 
 <?php
 
-    // if (isset($_GET['pageno'])) 
-    // {
-    //   $pageno = $_GET['pageno'];
-    //  } 
-    // else 
-    // {
-    //   $pageno = 1;
-    // }
-
-  // Number of blogs to be shown on a single page. For Pagination.
-  // $no_of_records_per_page = 5;  
-  // $offset = ($pageno-1) * $no_of_records_per_page;
-
-  // Counting the number of blogs user have of his own
-  // $result = $doc->countAllDoc(); 
-  // $total_rows = $method->fetchArray($result)[0];
-
-  // CEIL is used to roundoff.
-  // $total_pages = ceil($total_rows / $no_of_records_per_page);
-  // $result = $doc->fetchDocPaging($offset, $no_of_records_per_page);
-  
+// If (isset($_GET['pageno']))
+// {
+//   $pageno = $_GET['pageno'];
+//  }
+// else
+// {
+//   $pageno = 1;
+// }.
+// Number of blogs to be shown on a single page. For Pagination.
+// $no_of_records_per_page = 5;
+// $offset = ($pageno-1) * $no_of_records_per_page;.
+// Counting the number of blogs user have of his own
+// $result = $doc->countAllDoc();
+// $total_rows = $method->fetchArray($result)[0];
+// CEIL is used to roundoff.
+// $total_pages = ceil($total_rows / $no_of_records_per_page);
+// $result = $doc->fetchDocPaging($offset, $no_of_records_per_page);.
 ?>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -98,4 +101,4 @@ $method = new methodQuery\method;
 <!-- Latest compiled JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   
-<?php include 'footer.php';?>
+<?php include 'footer.php';
