@@ -1,0 +1,14 @@
+.ResourceTable {
+  padding: 50px 0;
+  table {
+      text-align: center;
+      // width: 100%;
+      th, td {
+        border: 1px solid black;
+        padding: 10px 20px;
+      }
+      .size {
+        width: 40%;
+      }
+  }  
+}
