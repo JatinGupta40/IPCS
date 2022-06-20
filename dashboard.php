@@ -53,18 +53,20 @@ $method = new methodQuery\method;
             <th>Resource</th>
           </tr>
             <?php
-              $document = $doc->FetchAllDoc();
-              $numberofcolumns = $method->numCols();
-              if($method->numRows($document) > 0) {
-                $fetchdocument = $method->fetchAssoc($document);
-                $n = 1;
-                foreach($fetchdocument as $row) {
+              $document = $doc->selectQuery();
+              $fetchdocument = $method->fetchAll($document);
+              $numberOfRows = $method->numRows($document);
+              if($numberOfRows > 0) {
+              $n = 1;
+                foreach($fetchdocument as $value) {
+                
             ?>
             <tr>
               <td><?php echo $n; ?></td>
-              <td><?php echo $row['Name'];?></td>
-              <td><?php echo $row['Subject']; ?></td>
-              <td><?php echo $row['Class']; ?></td>
+              <td><?php echo $value['Name']; ?></td>
+              <td><?php echo $value['Subject']; ?></td>
+              <td><?php echo $value['Class']; ?></td>
+              <td><a href="<?php echo $value['FilePath']; ?>"><span class="downloadButton"><i class="fa fa-download"> DOWNLOAD</span></td>
             </tr>
             <?php
                 $n++;

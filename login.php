@@ -133,8 +133,8 @@
 </div>
 
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/es6-shim/0.35.3/es6-shim.min.js"></script>    
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/es6-shim/0.35.3/es6-shim.min.js"></script>    
 <script src="/vendors/formvalidation/dist/js/FormValidation.min.js"></script>
 <script src="/vendors/formvalidation/dist/js/plugins/Tachyons.min.js"></script>
-
+-->
 <?php include './footer.php'; ?>

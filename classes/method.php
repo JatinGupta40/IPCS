@@ -15,12 +15,6 @@ class method extends connection
     return $result;
   } 
 
-  // Function for Number of Columns.
-  public function numCols()
-  {
-    $result = mysqli_query($this->connection,"SELECT count(*) AS NUMBEROFCOLUMNS FROM information_schema.columns WHERE table_name = 'SubjectNotes'");
-    return mysqli_fetch_array($result)[0];
-  }
   // Funcion for fetching array.
   public function fetchArray($query)
   {
@@ -34,6 +28,14 @@ class method extends connection
     $result =  mysqli_fetch_assoc($query);
     return $result;
   } 
+
+  // Function for Fetching all the data from the db.
+  public function fetchAll($document)
+  {
+    $result = mysqli_fetch_all($document, MYSQLI_ASSOC);
+    return $result;
+  }
+
 
 }
 
