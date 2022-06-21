@@ -1,14 +1,37 @@
 .ResourceTable {
   padding: 50px 0;
   table {
-      text-align: center;
-      // width: 100%;
-      th, td {
-        border: 1px solid black;
-        padding: 10px 20px;
-      }
-      .size {
-        width: 40%;
-      }
-  }  
+    text-align: center;
+    // width: 100%;
+    th, td {
+      border: 1px solid black;
+      padding: 10px 20px;
+      border-radius: 10px;
+    }
+    table tr:last-child td:first-child {
+      border: 2px solid orange;
+      border-bottom-left-radius: 10px;
+  }
+  
+    .size {
+      width: 40%;
+    }
+  }
+  .downloadButton{
+    border: none;
+    outline: none;
+    text-align: center;
+    font-size: 15px;
+    padding: 10px 22px;
+    background-color: #000000;
+    color: white;
+    cursor: pointer;
+    width: auto;
+    height: auto;
+    border-radius: 30px;
+    }
+    
+    .downloadButton:hover{
+    background-color: #ff0000
+    }   
 }

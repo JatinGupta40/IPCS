@@ -11,14 +11,14 @@
           <div class="col-lg-4 col-md-6 footer-links">
             <h4>Useful Links</h4>
               <ul>
-                <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
+                <li><i class="bx bx-chevron-right"></i> <a href="home">Home</a></li>
               </ul>
           </div>
 
           <div class="col-lg-4 col-md-6 footer-links">
             <h4>Our Social Networks</h4>
             <div class="social-links mt-3">
-              <a href="#"><img src="images/facebook-logo.png"></a>
+              <a href="#"><img src="images/Facebook-logo.png"></a>
               <a href="#"><img src="images/Instagram_icon.png"></a>
               <a href="#"><img src="images/124021.png"></a>
               <a href="#"><img src="images/linkedin.png"></a>
